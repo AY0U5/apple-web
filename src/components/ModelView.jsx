@@ -3,6 +3,7 @@ import {Html, OrbitControls, PerspectiveCamera, View} from "@react-three/drei";
 import Lights from "./Lights.jsx";
 import IPhone from "./IPhone.jsx";
 import * as THREE from "three"
+import Loading from "./Loading.jsx";
 
 const ModelView = (
     {
@@ -38,7 +39,7 @@ const ModelView = (
             <group ref={groupRef} name={`${index === 1 } ? 'small' : 'large'`}
                 position={[0,0,0]}
             >
-                <Suspense fallback={<Html><div>Loading</div></Html>}>
+                <Suspense fallback={<Loading/>}>
                     <IPhone
                         scale={index === 1 ? [15,15,15] : [17,17,17]}
                         item={item}
