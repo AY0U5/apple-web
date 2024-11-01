@@ -3,7 +3,6 @@ import {useEffect, useRef, useState} from "react";
 import {pauseImg, playImg, replayImg} from "../utils/index.js";
 import {useGSAP} from "@gsap/react";
 import {gsap} from "gsap";
-import white from "/assets/images/white.jpg";
 
 const VideoCarousel = () => {
 
@@ -123,6 +122,9 @@ const VideoCarousel = () => {
             case 'play':
                 setVideo((pre) => ({...pre, isPlaying: !pre.isPlaying}))
                 break;
+            case 'pause':
+                setVideo((pre) => ({...pre, isPlaying: !pre.isPlaying}))
+                break;
             default:
                 return video;
         }
@@ -146,6 +148,8 @@ const VideoCarousel = () => {
                                  playsInline={true}
                                  preload="auto"
                                  muted
+                                 className={`${list.id === 2 && 'translate-x-44'} 
+                                 pointer-events-none`}
                                  ref={(el) => (videoRef.current[i] = el)}
                                  onEnded={()=> i !== 3 ?
                                      handleProcess('video-end', i)
