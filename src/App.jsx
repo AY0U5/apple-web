@@ -3,16 +3,19 @@ import Hero from "./components/Hero.jsx";
 import HighLights from "./components/HighLights.jsx";
 import Model from "./components/Model.jsx"
 
-const App = () => {
+import * as Sentry from "@sentry/react";
+import Features from "./components/Features.jsx";
 
-  return (
-      <main className="bg-black">
-          <Navbar/>
-          <Hero/>
-          <HighLights/>
-          <Model/>
-      </main>
-  )
+const App = () => {
+    return (
+        <main className="bg-black">
+            <Navbar/>
+            <Hero/>
+            <HighLights/>
+            <Model/>
+            <Features/>
+        </main>
+    )
 }
 
-export default App
+export default Sentry.withProfiler(App)

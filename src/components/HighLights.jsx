@@ -1,19 +1,19 @@
 import React from 'react';
 import {rightImg, watchImg} from "../utils/index.js";
 import {useGSAP} from "@gsap/react";
-import {gsap} from "gsap";
 import VideoCarousel from "./VideoCarousel.jsx";
+import {animateWithGsap} from "../utils/animatWithGsapTimeline.js";
 
 const HighLights = () => {
 
     useGSAP(() => {
-        gsap.to("#title",{opacity:1 , y:0})
-        gsap.to(".link",{opacity:1 , y:0 , duration: 1, stagger: 0.25})
+        animateWithGsap("#title",{opacity:1 , y:0 })
+        animateWithGsap(".link",{opacity:1 , y:0 , duration: 1, stagger: 0.25})
     },[])
 
     return (
         <section id="highlights" className="w-screen
-        overflow-hidden h-full common-padding bg-zinc-950">
+        overflow-hidden h-full common-padding bg-zinc-900">
             <div className="screen-max-width">
                 <div className="mb-12 w-full md:flex items-end justify-between">
                     <h1 id="title" className="section-heading">

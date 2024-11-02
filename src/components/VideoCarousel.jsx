@@ -69,7 +69,7 @@ const VideoCarousel = () => {
             let anim = gsap.to(span[videoId] , {
                 onUpdate: ()=>{
                     const progress = Math.ceil(anim.progress() * 100);
-                    if (progress != currentProgress){
+                    if (progress !== currentProgress){
                         currentProgress = progress;
                         gsap.to(videoDivRef.current[videoId],{
                             width: window.innerWidth < 760
